@@ -1,0 +1,2 @@
+hadoop jar hadoop-0.19.1-dc/hadoop-0.19.1-dc-examples.jar sleep -m 100 -r 100 -mt 10000 -rt 10000
+hadoop namenode -format

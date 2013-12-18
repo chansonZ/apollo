@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.taobao</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0.2</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>apollo</groupId>
+	<artifactId>yarn.hadoop.0.23</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<name>hadoop.learn</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.compiler.level>1.6</project.build.compiler.level>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://mvnrepo.taobao.ali.com/mvn/repository</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>repo1</id>
+			<name>Maven Repository Default</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>repo2</id>
+			<name>Maven Repository Default</name>
+			<layout>default</layout>
+			<url>http://repo2.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>apache.snapshots.https</id>
+			<name>Apache Development Snapshot Repository</name>
+			<url>https://repository.apache.org/content/repositories/snapshots</url>
+		</repository>
+		<repository>
+			<id>repository.jboss.org</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.yunti</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>2.0.0-ydh1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.yunti</groupId>
+			<artifactId>hadoop-mapreduce-client-core</artifactId>
+			<version>2.0.0-ydh1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>15.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
