@@ -49,6 +49,7 @@ public class TestServer {
       Server server = new RPC.Builder(conf).setProtocol(TestProtocol.class)
           .setInstance(new TestImpl()).setPort(7788).setNumHandlers(2).setSecretManager(sm)
           .setVerbose(false).build();
+
       // gen token
       final UserGroupInformation current = UserGroupInformation.getCurrentUser();
       final InetSocketAddress addr = NetUtils.getConnectAddress(server);
@@ -82,14 +83,17 @@ public class TestServer {
       for (Token<?> token : credentials.getAllTokens()) {
         System.out.println(token);
       }
-      for (int i = 0; i < 10; i++) {
-        long start = System.currentTimeMillis();
-        proxy = RPC.getProxy(TestProtocol.class, TestProtocol.versionID, addr, conf);
-        System.out.println(proxy.echo("hi"));
-        long end = System.currentTimeMillis();
-        System.out.println("spend time:" + (end - start));
+      long start = System.nanoTime();
+      proxy = RPC.getProxy(TestProtocol.class, TestProtocol.versionID, addr, conf);
+      proxy.echo("122");
+      System.out.println("first spend time: " + (System.nanoTime() - start));
+      start = System.nanoTime();
+      int times = 100;
+      for (int i = 0; i < times; i++) {
+        proxy.echo("122");
       }
-
+      long end = System.nanoTime();
+      System.out.println("other spend time: " + (end - start) / times);
     }
   }
 
