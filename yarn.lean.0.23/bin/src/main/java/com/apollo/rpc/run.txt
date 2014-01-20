@@ -1,0 +1,56 @@
+1. set classpatch
+export CLASSPATH=/home/dragon.caol/src/apollo/yarn.lean/target/yarn.hadoop-1.0.jar:~/hadoop-current/share/hadoop/common/hadoop-common-2.0.0-ydh2.2.0.jar:~/hadoop-current/share/hadoop/common/lib/*
+
+2. run no ssl server:java com.apollo.rpc.TestServer -server 0
+
+3. unset HADOOP_TOKEN_FILE_LOCATION
+
+4. java com.apollo.rpc.TestServer -client 10.249.197.59
+Kind: test.token, Service: 10.249.197.59:7788, Ident: 0b 64 72 61 67 6f 6e 2e
+63 61 6f 6c 00
+hi
+spend time:346
+hi
+spend time:2
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:2
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:1
+5. run ssl server:java com.apollo.rpc.TestServer -server ssl
+
+6. export  HADOOP_TOKEN_FILE_LOCATION=/tmp/tokens
+
+7. java com.apollo.rpc.TestServer -client 10.249.197.59
+Executing with tokens:
+hi
+spend time:188
+hi
+spend time:2
+hi
+spend time:1
+hi
+spend time:2
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:1
+hi
+spend time:3
+hi
+spend time:1
